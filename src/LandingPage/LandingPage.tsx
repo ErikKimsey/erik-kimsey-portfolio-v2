@@ -1,4 +1,3 @@
-import { log } from 'node:console';
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 
@@ -9,6 +8,7 @@ type Props = {
 type StyledProps = {
     bg?: string;
     textColor?: string;
+    h1TextColor?: string;
 };
 
 const LandingPage: FC<Props> = ({ header }) => {
@@ -21,17 +21,18 @@ const LandingPage: FC<Props> = ({ header }) => {
     });
     return (
         <StyledContainer bg="">
-            <h1>{header}</h1>
+            <StyledH1 h1TextColor="">{header}</StyledH1>
         </StyledContainer>
     );
 };
 
 const StyledContainer = styled.div<StyledProps>`
-    border: solid 1px #f0f;
-    background-color: ${(props) => (props.bg ? props.bg : '#a0f')};
-    h1 {
-        color: blueviolet;
-    }
+    /* background-color: ${(props) => (props.bg ? props.bg : '#a0f')}; */
+`;
+
+const StyledH1 = styled.h1<StyledProps>`
+    color: ${(props) => (props.h1TextColor ? props.h1TextColor : 'black')};
+    text-align: center;
 `;
 
 export default LandingPage;
