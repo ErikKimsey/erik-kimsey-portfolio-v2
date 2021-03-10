@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
+import '../styles/fonts.css';
 
 type Props = {
     name?: string;
@@ -15,28 +16,36 @@ const HeaderComponent: FC<Props> = (props) => {
 
     return (
         <StyledContainer>
-            <h1>{name}</h1>
-            <h2>{title}</h2>
+            <h1 className="name">{name}</h1>
+            <h1>_</h1>
+            <h1 className="title">{title}</h1>
         </StyledContainer>
     );
 };
 
 const StyledContainer = styled.div<StyledProps>`
-    flex: 1;
     padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
+    font-family: 'Kiona';
     h1 {
         color: #fff;
-        padding: 10px;
-    }
-    h2 {
-        color: #fff;
-        padding: 10px;
-        align-self: flex-end;
+        text-align: center;
+        font-size: 32px;
+        &.name {
+            color: #f9f;
+        }
+        &.title {
+        }
+        @media (min-width: 300px) {
+            font-size: 22px;
+        }
+        @media (min-width: 700px) {
+            font-size: 28px;
+        }
+        @media (min-width: 1080px) {
+            font-size: 32px;
+        }
     }
 `;
 
