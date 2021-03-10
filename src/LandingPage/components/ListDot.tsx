@@ -29,7 +29,6 @@ const ListDot: FC<Props> = (props) => {
 };
 
 const StyledContainer = styled.button<StyledProps>`
-    /* z-index: -1000; */
     position: absolute;
     outline: none;
     margin: 5px;
@@ -43,8 +42,6 @@ const StyledContainer = styled.button<StyledProps>`
     align-items: center;
     transform: ${(props) =>
         `rotate(${props.dotAngle}deg) translate(${props.dotIndex}px, 120px) rotate(-${props.dotAngle}deg)`};
-    /* width: ${(props) => props.dotAngle}; */
-    /* translate: 300px; */
 `;
 
 export default ListDot;

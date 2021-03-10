@@ -49,14 +49,23 @@ const StyledDot = styled.button<StyledProps>`
     border: solid 0px #555;
     border-radius: 500px;
     &:active {
-        width: 130px;
-        height: 130px;
-        background-color: #f0f;
-    }
-    &:hover {
         width: 126px;
         height: 126px;
-        border: solid 2px #b0b;
+        background-color: #000;
+        border: solid 2px #fff;
+    }
+    @media (min-width: 1020px) {
+        &:hover {
+            width: 126px;
+            height: 126px;
+            background-color: #202;
+        }
+        &:active {
+            width: 126px;
+            height: 126px;
+            background-color: #000;
+            border: solid 2px #fff;
+        }
     }
 `;
 
