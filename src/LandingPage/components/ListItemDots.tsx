@@ -41,13 +41,10 @@ const ListItemDots: FC<Props> = (props) => {
 
 const StyledContainer = styled.div<StyledProps>`
     position: absolute;
-    width: 1000px;
-    height: 600px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* background-color: #f0f; */
 `;
 
 export default ListItemDots;

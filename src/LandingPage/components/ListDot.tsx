@@ -20,15 +20,6 @@ type StyledProps = {
 
 const ListDot: FC<Props> = (props) => {
     const { content, dotIndex, dotAngle, dotLength } = props;
-    const [translateValue, setTransValue] = useState<number>();
-    console.log('...');
-    console.log(dotAngle);
-    console.log('...');
-    useEffect(() => {
-        if (dotAngle) {
-            setTransValue(dotAngle / 2);
-        }
-    });
 
     return (
         <StyledContainer dotIndex={dotIndex} dotAngle={dotAngle} dotLength={dotLength}>
@@ -38,7 +29,7 @@ const ListDot: FC<Props> = (props) => {
 };
 
 const StyledContainer = styled.button<StyledProps>`
-    z-index: 1000;
+    /* z-index: -1000; */
     position: absolute;
     outline: none;
     margin: 5px;
@@ -51,7 +42,7 @@ const StyledContainer = styled.button<StyledProps>`
     justify-content: center;
     align-items: center;
     transform: ${(props) =>
-        `rotate(${props.dotAngle}deg) translate(${props.dotIndex}px, 200px) rotate(-${props.dotAngle}deg)`};
+        `rotate(${props.dotAngle}deg) translate(${props.dotIndex}px, 120px) rotate(-${props.dotAngle}deg)`};
     /* width: ${(props) => props.dotAngle}; */
     /* translate: 300px; */
 `;

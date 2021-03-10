@@ -23,20 +23,22 @@ const LandingPage: FC<Props> = ({ header }) => {
     return (
         <StyledContainer bg="">
             <ListItemDots />
-            <StyledDot></StyledDot>
+            <StyledDot
+                onClick={() => {
+                    console.log('CLICKERS');
+                }}
+            ></StyledDot>
         </StyledContainer>
     );
 };
 
 const StyledContainer = styled.div<StyledProps>`
-    /* background-color: ${(props) => (props.bg ? props.bg : '#a0f')}; */
     height: 60vh;
     width: 60vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: #f0f; */
 `;
 
 const StyledDot = styled.button<StyledProps>`
@@ -44,21 +46,17 @@ const StyledDot = styled.button<StyledProps>`
     width: 120px;
     height: 120px;
     background-color: #fff;
-    text-align: center;
     border: solid 0px #555;
     border-radius: 500px;
     &:active {
-        outline: none;
+        width: 130px;
+        height: 130px;
+        background-color: #f0f;
+    }
+    &:hover {
         width: 126px;
         height: 126px;
-    }
-    @media (min-width: 1080px) {
-        width: 300px;
-        height: 300px;
-        &:active {
-            width: 310px;
-            height: 310px;
-        }
+        border: solid 2px #b0b;
     }
 `;
 
