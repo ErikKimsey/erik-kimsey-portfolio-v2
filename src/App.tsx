@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import styled from 'styled-components';
-import { LandingPage } from './LandingPage';
+import { LandingPage } from './LandingPage/components';
 import HeaderComponent from './Header/Header';
 
 function App() {

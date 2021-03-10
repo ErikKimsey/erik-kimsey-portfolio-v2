@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { ListItemDots } from './components/index';
 
 type Props = {
     header?: string;
@@ -21,6 +22,7 @@ const LandingPage: FC<Props> = ({ header }) => {
     });
     return (
         <StyledContainer bg="">
+            <ListItemDots />
             <StyledDot></StyledDot>
         </StyledContainer>
     );
