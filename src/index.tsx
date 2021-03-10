@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './assets/fonts/quicksand/Quicksand_Book.otf';
-import './assets/fonts/comfortaa/comfortaa.ttf';
-import './assets/fonts/comfortaa/comfortaa_bold.ttf';
-import './assets/fonts/louis_george_caf/louis_george.ttf';
+import './assets/fonts/Quicksand_Book.otf';
+import './assets/fonts/comfortaa.ttf';
+import './assets/fonts/louis_george.ttf';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

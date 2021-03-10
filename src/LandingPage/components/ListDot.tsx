@@ -5,22 +5,41 @@ type Props = {
     link?: string;
     content?: string;
     dotIndex?: number;
+    dotAngle?: number;
+    dotLength?: number;
 };
 
 type StyledProps = {
     textColor?: string;
     dotHeight?: number;
     dotWidth?: number;
+    dotAngle?: number;
+    dotIndex?: number;
+    dotLength?: number;
 };
 
 const ListDot: FC<Props> = (props) => {
-    const { content, dotIndex } = props;
+    const { content, dotIndex, dotAngle, dotLength } = props;
+    const [translateValue, setTransValue] = useState<number>();
+    console.log('...');
+    console.log(dotAngle);
+    console.log('...');
+    useEffect(() => {
+        if (dotAngle) {
+            setTransValue(dotAngle / 2);
+        }
+    });
 
-    return <StyledContainer>{content}</StyledContainer>;
+    return (
+        <StyledContainer dotIndex={dotIndex} dotAngle={dotAngle} dotLength={dotLength}>
+            {content}
+        </StyledContainer>
+    );
 };
 
 const StyledContainer = styled.button<StyledProps>`
-    /* position: absolute;  */
+    z-index: 1000;
+    position: absolute;
     outline: none;
     margin: 5px;
     width: 80px;
@@ -31,6 +50,10 @@ const StyledContainer = styled.button<StyledProps>`
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: ${(props) =>
+        `rotate(${props.dotAngle}deg) translate(${props.dotIndex}px, 200px) rotate(-${props.dotAngle}deg)`};
+    /* width: ${(props) => props.dotAngle}; */
+    /* translate: 300px; */
 `;
 
 export default ListDot;

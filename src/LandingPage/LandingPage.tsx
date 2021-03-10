@@ -13,7 +13,7 @@ type StyledProps = {
 };
 
 const LandingPage: FC<Props> = ({ header }) => {
-    const [headerText, setHeaderText] = useState<string>('');
+    const [headerText] = useState<string>('');
 
     useEffect(() => {
         if (headerText === '' && header) {
