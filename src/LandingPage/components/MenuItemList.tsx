@@ -44,6 +44,7 @@ const ListItemDots: FC<Props> = (props) => {
                                 dotAngle={i * dotAngle}
                                 dotLength={arrLength}
                                 key={i}
+                                linkURI="portfolio"
                             />
                         );
                     })}

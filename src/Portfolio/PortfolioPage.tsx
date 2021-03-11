@@ -22,7 +22,6 @@ const PortfolioPage: FC<Props> = (props) => {
 const StyledContainer = styled.div<StyledProps>`
     height: 60vh;
     width: 60vw;
-    background-color: #a0a;
     color: #fff;
 `;
 

@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 type Props = {
@@ -8,6 +9,7 @@ type Props = {
     dotAngle?: number;
     dotLength?: number;
     dotActive?: boolean;
+    linkURI?: string;
 };
 
 type StyledProps = {
@@ -22,7 +24,7 @@ type StyledProps = {
 };
 
 const ListDot: FC<Props> = (props) => {
-    const { dotContent, dotIndex, dotAngle, dotLength, dotActive } = props;
+    const { dotContent, dotIndex, dotAngle, dotLength, dotActive, linkURI } = props;
     const [isDotActive, setIsDotActive] = useState<boolean>(false);
     const [dotTranslateY, setDotTranslateY] = useState<number>(0);
     const [dotTranslateX, setDotTranslateX] = useState<number>(0);
@@ -46,6 +48,7 @@ const ListDot: FC<Props> = (props) => {
                     dotLength={dotLength}
                 >
                     {dotContent}
+                    <Link to={`./${linkURI}`}>{linkURI}</Link>
                 </StyledContainer>
             )}
         </>
