@@ -60,10 +60,15 @@ const StyledDot = styled.button<StyledProps>`
         background-color: #000;
         border: solid 2px #fff;
     }
+    &:hover {
+        background-color: #000;
+        border: solid 2px #fff;
+    }
     @media (min-width: 1020px) {
         &:hover {
             width: 126px;
             height: 126px;
+            background-color: #000;
             /* background-color: #202; */
         }
         &:active {
