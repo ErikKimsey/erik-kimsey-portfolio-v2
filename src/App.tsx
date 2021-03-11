@@ -14,14 +14,16 @@ function App() {
                 {/* <ul>
                     <Link to="/portfolio">PORT YOYOYO</Link>
                 </ul> */}
-                <Switch>
-                    <Route path="/portfolio">
-                        <PortfolioPage />
-                    </Route>
-                    <Route path="/">
-                        <LandingPage />
-                    </Route>
-                </Switch>
+                <div className="subcontainer">
+                    <Switch>
+                        <Route path="/portfolio">
+                            <PortfolioPage />
+                        </Route>
+                        <Route path="/">
+                            <LandingPage />
+                        </Route>
+                    </Switch>
+                </div>
             </StyledContainer>
         </Router>
     );
@@ -33,9 +35,17 @@ const StyledContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0px auto;
-    height: 95vh;
+
     max-width: 1200px;
     width: 100%;
+    .subcontainer {
+        height: 60vh;
+        width: 60vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     @media (min-width: 300px) {
         height: 95vh;
         width: ${window.innerWidth - 10}px;

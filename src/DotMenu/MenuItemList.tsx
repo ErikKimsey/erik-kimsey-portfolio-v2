@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { MenuDotItem } from './index';
+import MenuDotItem from './MenuDotItem';
 
 const MOCKARRAY = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
@@ -14,7 +14,15 @@ type StyledProps = {
 };
 
 const ListItemDots: FC<Props> = (props) => {
-    const { dotActive } = props;
+    const [dotActive, setDotActive] = useState<boolean>();
+
+    useEffect(() => {
+        if (dotActive === undefined || dotActive === true) setDotActive(false);
+    }, []);
+
+    const handleDotPress = () => {
+        setDotActive(!dotActive);
+    };
     const [arrLength, setArrLength] = useState<number>(MOCKARRAY.length);
     const [dotAngle, setDotAngle] = useState<number>(0);
 
@@ -34,6 +42,11 @@ const ListItemDots: FC<Props> = (props) => {
 
     return (
         <>
+            <StyledDot
+                onClick={() => {
+                    handleDotPress();
+                }}
+            ></StyledDot>
             {dotActive && (
                 <StyledContainer>
                     {MOCKARRAY.map((e, i) => {
@@ -60,6 +73,39 @@ const StyledContainer = styled.div<StyledProps>`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+`;
+
+const StyledDot = styled.button<StyledProps>`
+    outline: none;
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border: solid 0px #555;
+    border-radius: 500px;
+    &:active {
+        width: 126px;
+        height: 126px;
+        background-color: #000;
+        border: solid 2px #fff;
+    }
+    &:hover {
+        background-color: #000;
+        border: solid 2px #fff;
+    }
+    @media (min-width: 1020px) {
+        &:hover {
+            width: 126px;
+            height: 126px;
+            background-color: #000;
+            /* background-color: #202; */
+        }
+        &:active {
+            width: 126px;
+            height: 126px;
+            background-color: #000;
+            border: solid 2px #fff;
+        }
+    }
 `;
 
 export default ListItemDots;

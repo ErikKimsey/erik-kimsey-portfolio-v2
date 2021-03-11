@@ -10,18 +10,16 @@ type StyledProps = {
 };
 
 const PortfolioPage: FC<Props> = (props) => {
-    // const {} = props;
+    const { data } = props;
 
     return (
         <StyledContainer>
-            <div style={{ color: '#fff' }}>YOYOYOY</div>
+            <div style={{ color: '#fff' }}></div>
         </StyledContainer>
     );
 };
 
 const StyledContainer = styled.div<StyledProps>`
-    height: 60vh;
-    width: 60vw;
     color: #fff;
 `;
 
