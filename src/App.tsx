@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
 import { LandingPage } from './LandingPage/components';
@@ -6,10 +7,16 @@ import HeaderComponent from './Header/Header';
 
 function App() {
     return (
-        <StyledContainer className="App">
-            <HeaderComponent name="Erik Kimsey" title="UX Engineer" />
-            <LandingPage header={''} />
-        </StyledContainer>
+        <Router>
+            <StyledContainer className="App">
+                <HeaderComponent name="Erik Kimsey" title="UX Engineer" />
+                <Switch>
+                    <Route path="/">
+                        <LandingPage />
+                    </Route>
+                </Switch>
+            </StyledContainer>
+        </Router>
     );
 }
 
