@@ -14,24 +14,21 @@ type StyledProps = {
 
 const LandingPage: FC<Props> = ({ header }) => {
     const [headerText] = useState<string>('');
-    const [dotActive, setDotActive] = useState<boolean>(false);
+    const [dotActive, setDotActive] = useState<boolean>();
 
     useEffect(() => {
-        if (headerText === '' && header) {
-            // setHeaderText(header);
-        }
-    });
-    useEffect(() => {
-        //
-    }, [dotActive]);
+        if (dotActive === undefined || dotActive === true) setDotActive(false);
+        // console.log('dotActive in Landing, in initial render', dotActive);
+    }, []);
 
     const handleDotPress = () => {
         setDotActive(!dotActive);
+        // console.log('dotActive in Landing, in handleDotPress', dotActive);
     };
 
     return (
         <StyledContainer bg="">
-            <ListItemDots dotActive={dotActive} />
+            {dotActive === true && <ListItemDots dotActive={dotActive} />}
             <StyledDot
                 onClick={() => {
                     handleDotPress();

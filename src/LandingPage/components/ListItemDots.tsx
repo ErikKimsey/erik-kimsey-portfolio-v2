@@ -23,11 +23,8 @@ const ListItemDots: FC<Props> = (props) => {
             setArrLength(MOCKARRAY.length);
         }
         calcAngleBwDots();
-    });
-
-    useEffect(() => {
-        //
-    }, [dotActive]);
+        console.log('DOT active in ListITems', dotActive);
+    }, []);
 
     const calcAngleBwDots = () => {
         if (arrLength) {
@@ -36,11 +33,23 @@ const ListItemDots: FC<Props> = (props) => {
     };
 
     return (
-        <StyledContainer>
-            {MOCKARRAY.map((e, i) => {
-                return <ListDot dotContent={e} dotIndex={i} dotAngle={i * dotAngle} dotLength={arrLength} key={i} />;
-            })}
-        </StyledContainer>
+        <>
+            {dotActive && (
+                <StyledContainer>
+                    {MOCKARRAY.map((e, i) => {
+                        return (
+                            <ListDot
+                                dotContent={e}
+                                dotIndex={i}
+                                dotAngle={i * dotAngle}
+                                dotLength={arrLength}
+                                key={i}
+                            />
+                        );
+                    })}
+                </StyledContainer>
+            )}
+        </>
     );
 };
 

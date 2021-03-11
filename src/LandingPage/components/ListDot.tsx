@@ -15,35 +15,40 @@ type StyledProps = {
     dotHeight?: number;
     dotWidth?: number;
     dotAngle?: number;
-    dotIndex?: number;
+    dotTranslateY?: number;
+    dotTranslateX?: number;
     dotLength?: number;
     isActive?: boolean;
 };
 
 const ListDot: FC<Props> = (props) => {
     const { dotContent, dotIndex, dotAngle, dotLength, dotActive } = props;
-    const [isDotActive, setIsDotActive] = useState<boolean>();
-    const [dotTranslate, setDotTranslate] = useState<number>(0);
+    const [isDotActive, setIsDotActive] = useState<boolean>(false);
+    const [dotTranslateY, setDotTranslateY] = useState<number>(0);
+    const [dotTranslateX, setDotTranslateX] = useState<number>(0);
 
     useEffect(() => {
-        if (isDotActive === undefined) {
-            setIsDotActive(false);
+        if (dotIndex != undefined) {
+            setIsDotActive(true);
+            setDotTranslateX(dotIndex);
+            setDotTranslateY(dotIndex + 140);
         }
     }, []);
 
-    useEffect(() => {
-        setIsDotActive(!isDotActive);
-        if (isDotActive && dotIndex) {
-            setDotTranslate(dotIndex);
-        } else {
-            setDotTranslate(0);
-        }
-    }, [dotActive]);
-
     return (
-        <StyledContainer dotIndex={dotTranslate} isActive={isDotActive} dotAngle={dotAngle} dotLength={dotLength}>
-            {dotContent}
-        </StyledContainer>
+        <>
+            {isDotActive && (
+                <StyledContainer
+                    dotTranslateY={dotTranslateY}
+                    dotTranslateX={dotTranslateX}
+                    isActive={isDotActive}
+                    dotAngle={dotAngle}
+                    dotLength={dotLength}
+                >
+                    {dotContent}
+                </StyledContainer>
+            )}
+        </>
     );
 };
 
@@ -60,7 +65,7 @@ const StyledContainer = styled.button<StyledProps>`
     justify-content: center;
     align-items: center;
     transform: ${(props) =>
-        `rotate(${props.dotAngle}deg) translate(${props.dotIndex}px, 120px) rotate(-${props.dotAngle}deg)`};
+        `rotate(${props.dotAngle}deg) translate(${props.dotTranslateX}px, ${props.dotTranslateY}px) rotate(-${props.dotAngle}deg)`};
 `;
 
 export default ListDot;
