@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
 import { LandingPage } from './LandingPage/components';
+import PortfolioPage from './Portfolio/PortfolioPage';
 import HeaderComponent from './Header/Header';
 
 function App() {
@@ -10,7 +11,13 @@ function App() {
         <Router>
             <StyledContainer className="App">
                 <HeaderComponent name="Erik Kimsey" title="UX Engineer" />
+                {/* <ul>
+                    <Link to="/portfolio">PORT YOYOYO</Link>
+                </ul> */}
                 <Switch>
+                    <Route path="/portfolio">
+                        <PortfolioPage />
+                    </Route>
                     <Route path="/">
                         <LandingPage />
                     </Route>

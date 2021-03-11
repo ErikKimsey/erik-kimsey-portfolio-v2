@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { ListDot } from './index';
+import { MenuDotItem } from './index';
 
 const MOCKARRAY = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
@@ -38,7 +38,7 @@ const ListItemDots: FC<Props> = (props) => {
                 <StyledContainer>
                     {MOCKARRAY.map((e, i) => {
                         return (
-                            <ListDot
+                            <MenuDotItem
                                 dotContent={e}
                                 dotIndex={i}
                                 dotAngle={i * dotAngle}

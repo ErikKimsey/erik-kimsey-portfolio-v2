@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { ListItemDots } from './components/index';
+import { MenuItemList } from './components/index';
 
 type Props = {
     header?: string;
@@ -25,7 +25,7 @@ const LandingPage: FC<Props> = ({}) => {
 
     return (
         <StyledContainer bg="">
-            {dotActive === true && <ListItemDots dotActive={dotActive} />}
+            {dotActive === true && <MenuItemList dotActive={dotActive} />}
             <StyledDot
                 onClick={() => {
                     handleDotPress();
