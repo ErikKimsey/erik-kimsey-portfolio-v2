@@ -12,18 +12,15 @@ type StyledProps = {
     h1TextColor?: string;
 };
 
-const LandingPage: FC<Props> = ({ header }) => {
-    const [headerText] = useState<string>('');
+const LandingPage: FC<Props> = ({}) => {
     const [dotActive, setDotActive] = useState<boolean>();
 
     useEffect(() => {
         if (dotActive === undefined || dotActive === true) setDotActive(false);
-        // console.log('dotActive in Landing, in initial render', dotActive);
     }, []);
 
     const handleDotPress = () => {
         setDotActive(!dotActive);
-        // console.log('dotActive in Landing, in handleDotPress', dotActive);
     };
 
     return (
