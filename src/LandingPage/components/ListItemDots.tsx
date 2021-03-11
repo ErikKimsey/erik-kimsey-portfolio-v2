@@ -6,6 +6,7 @@ const MOCKARRAY = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
 type Props = {
     title?: string;
+    dotActive?: boolean;
 };
 
 type StyledProps = {
@@ -13,7 +14,7 @@ type StyledProps = {
 };
 
 const ListItemDots: FC<Props> = (props) => {
-    const {} = props;
+    const { dotActive } = props;
     const [arrLength, setArrLength] = useState<number>(MOCKARRAY.length);
     const [dotAngle, setDotAngle] = useState<number>(0);
 
@@ -24,6 +25,10 @@ const ListItemDots: FC<Props> = (props) => {
         calcAngleBwDots();
     });
 
+    useEffect(() => {
+        //
+    }, [dotActive]);
+
     const calcAngleBwDots = () => {
         if (arrLength) {
             setDotAngle(360 / arrLength);
@@ -33,7 +38,7 @@ const ListItemDots: FC<Props> = (props) => {
     return (
         <StyledContainer>
             {MOCKARRAY.map((e, i) => {
-                return <ListDot content={e} dotIndex={i} dotAngle={i * dotAngle} dotLength={arrLength} key={i} />;
+                return <ListDot dotContent={e} dotIndex={i} dotAngle={i * dotAngle} dotLength={arrLength} key={i} />;
             })}
         </StyledContainer>
     );

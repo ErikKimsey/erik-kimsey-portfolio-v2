@@ -3,10 +3,11 @@ import styled from 'styled-components';
 
 type Props = {
     link?: string;
-    content?: string;
+    dotContent?: string;
     dotIndex?: number;
     dotAngle?: number;
     dotLength?: number;
+    dotActive?: boolean;
 };
 
 type StyledProps = {
@@ -16,14 +17,32 @@ type StyledProps = {
     dotAngle?: number;
     dotIndex?: number;
     dotLength?: number;
+    isActive?: boolean;
 };
 
 const ListDot: FC<Props> = (props) => {
-    const { content, dotIndex, dotAngle, dotLength } = props;
+    const { dotContent, dotIndex, dotAngle, dotLength, dotActive } = props;
+    const [isDotActive, setIsDotActive] = useState<boolean>();
+    const [dotTranslate, setDotTranslate] = useState<number>(0);
+
+    useEffect(() => {
+        if (isDotActive === undefined) {
+            setIsDotActive(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        setIsDotActive(!isDotActive);
+        if (isDotActive && dotIndex) {
+            setDotTranslate(dotIndex);
+        } else {
+            setDotTranslate(0);
+        }
+    }, [dotActive]);
 
     return (
-        <StyledContainer dotIndex={dotIndex} dotAngle={dotAngle} dotLength={dotLength}>
-            {content}
+        <StyledContainer dotIndex={dotTranslate} isActive={isDotActive} dotAngle={dotAngle} dotLength={dotLength}>
+            {dotContent}
         </StyledContainer>
     );
 };

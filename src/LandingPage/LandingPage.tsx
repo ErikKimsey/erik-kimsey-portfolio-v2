@@ -14,18 +14,27 @@ type StyledProps = {
 
 const LandingPage: FC<Props> = ({ header }) => {
     const [headerText] = useState<string>('');
+    const [dotActive, setDotActive] = useState<boolean>(false);
 
     useEffect(() => {
         if (headerText === '' && header) {
             // setHeaderText(header);
         }
     });
+    useEffect(() => {
+        //
+    }, [dotActive]);
+
+    const handleDotPress = () => {
+        setDotActive(!dotActive);
+    };
+
     return (
         <StyledContainer bg="">
-            <ListItemDots />
+            <ListItemDots dotActive={dotActive} />
             <StyledDot
                 onClick={() => {
-                    console.log('CLICKERS');
+                    handleDotPress();
                 }}
             ></StyledDot>
         </StyledContainer>
@@ -58,7 +67,7 @@ const StyledDot = styled.button<StyledProps>`
         &:hover {
             width: 126px;
             height: 126px;
-            background-color: #202;
+            /* background-color: #202; */
         }
         &:active {
             width: 126px;
