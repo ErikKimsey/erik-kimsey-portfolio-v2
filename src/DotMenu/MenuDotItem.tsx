@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -70,6 +70,16 @@ const ListDot: FC<Props> = (props) => {
     );
 };
 
+const DotInAnimation = keyframes`
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+`;
+
+const DotOutAnimation = keyframes`
+    0% {opacity: 1;}
+    100% {opactiy: 0;}
+`;
+
 const StyledContainer = styled.button<StyledProps>`
     position: absolute;
     outline: none;
@@ -86,6 +96,9 @@ const StyledContainer = styled.button<StyledProps>`
     /* border: solid 2px #fff; */
     transform: ${(props) =>
         `rotate(-${props.dotAngle}deg) translate(${props.dotTranslateX}px, ${props.dotTranslateY}px) rotate(${props.dotAngle}deg)`};
+    animation-name: ${(props) => (props.isActive === true ? DotInAnimation : DotOutAnimation)};
+    animation-duration: 1s;
+    animation-iteration-count: 1;
     &:active {
         background-color: #000;
         border: solid 2px #fff;

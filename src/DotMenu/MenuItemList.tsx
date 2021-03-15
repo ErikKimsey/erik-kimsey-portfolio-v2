@@ -92,31 +92,30 @@ const StyledDot = styled.button<StyledProps>`
     border-radius: 500px;
     background-color: #000;
     &:active {
-        width: 126px;
-        height: 126px;
+        width: 130px;
+        height: 130px;
         background-color: #000;
-        border: solid 2px #fff;
-        width: 124px;
-        height: 124px;
+        /* border: solid 2px #fff; */
+        /* width: 124px;
+        height: 124px; */
     }
     &:hover {
         width: 124px;
         height: 124px;
         background-color: #000;
-        border: solid 2px #fff;
+        /* border: solid 2px #fff; */
     }
     @media (min-width: 1020px) {
         &:hover {
-            width: 126px;
-            height: 126px;
+            width: 130px;
+            height: 130px;
             background-color: #000;
             /* background-color: #202; */
         }
         &:active {
-            width: 126px;
-            height: 126px;
+            width: 130px;
+            height: 130px;
             background-color: #000;
-            border: solid 2px #fff;
         }
     }
 `;
