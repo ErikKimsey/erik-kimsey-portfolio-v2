@@ -21,14 +21,19 @@ type StyledProps = {
 
 const VerticalDot: FC<Props> = (props) => {
     const { dotContent } = props;
-    console.log(dotContent);
+    const [isHover, setIsHover] = useState<boolean>(false);
+
+    const handleHover = (v: boolean) => {
+        setIsHover(v);
+    };
 
     return (
         <>
             <StyledContainer>
                 <Link to={`./${dotContent?.routeName}`}>
                     {dotContent?.iconName && (
-                        <FontAwesomeIcon icon={dotContent?.iconName} size="3x" style={{ color: '#FF99FE' }} />
+                        <FontAwesomeIcon icon={dotContent?.iconName} size="3x" className="fontIcon" />
+                        // <FontAwesomeIcon icon={dotContent?.iconName} size="3x" style={{ color: '#FF99FE' }} className='icon'/>
                     )}
                 </Link>
             </StyledContainer>
@@ -48,6 +53,12 @@ const StyledContainer = styled.button<StyledProps>`
     display: flex;
     justify-content: center;
     align-items: center;
+    .fontIcon {
+        color: #ff99fe;
+        &:active {
+            color: #fff;
+        }
+    }
     &:hover {
         align-items: flex-end;
     }

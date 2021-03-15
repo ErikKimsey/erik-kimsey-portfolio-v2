@@ -1,6 +1,9 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import VerticalMenu from '../VerticalMenu/VerticalMenu';
+import WorkItemList from './WorkItemList';
+import { WORK_HISTORY } from '../data/WorkHistory';
+import { WorkItemType } from './types';
 
 type Props = {
     data?: [];
@@ -12,11 +15,18 @@ type StyledProps = {
 
 const PortfolioPage: FC<Props> = (props) => {
     const { data } = props;
+    const [workHistory, setWorkHistory] = useState<WorkItemType[]>();
+
+    useEffect(() => {
+        if (WORK_HISTORY && WORK_HISTORY.length > 0) {
+            setWorkHistory(WORK_HISTORY);
+        }
+    }, []);
 
     return (
         <StyledContainer>
             <VerticalMenu />
-            <div style={{ color: '#fff' }}></div>
+            {workHistory && <WorkItemList workItemData={workHistory} />}
         </StyledContainer>
     );
 };
