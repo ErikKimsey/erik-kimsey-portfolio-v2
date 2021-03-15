@@ -32,7 +32,7 @@ function App() {
 const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     margin: 0px auto;
 
@@ -43,7 +43,7 @@ const StyledContainer = styled.div`
         width: 60vw;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        /* justify-content: center; */
         align-items: center;
     }
     @media (min-width: 300px) {

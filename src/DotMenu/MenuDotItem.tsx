@@ -1,10 +1,20 @@
 import React, { FC, useState, useEffect } from 'react';
+import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+// Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+
+interface DotContent {
+    iconName?: IconProp;
+    routeName?: string;
+}
+
 type Props = {
     link?: string;
-    dotContent?: string;
+    dotContent?: DotContent;
     dotIndex?: number;
     dotAngle?: number;
     dotLength?: number;
@@ -25,6 +35,8 @@ type StyledProps = {
 
 const ListDot: FC<Props> = (props) => {
     const { dotContent, dotIndex, dotAngle, dotLength, dotActive, linkURI } = props;
+    console.log(dotContent);
+
     const [isDotActive, setIsDotActive] = useState<boolean>(false);
     const [dotTranslateY, setDotTranslateY] = useState<number>(0);
     const [dotTranslateX, setDotTranslateX] = useState<number>(0);
@@ -47,8 +59,11 @@ const ListDot: FC<Props> = (props) => {
                     dotAngle={dotAngle}
                     dotLength={dotLength}
                 >
-                    {dotContent}
-                    <Link to={`./${linkURI}`}>{linkURI}</Link>
+                    <Link to={`./${dotContent?.routeName}`}>
+                        {dotContent?.iconName && (
+                            <FontAwesomeIcon icon={dotContent?.iconName} size="3x" style={{ color: '#FF99FE' }} />
+                        )}
+                    </Link>
                 </StyledContainer>
             )}
         </>
@@ -61,14 +76,24 @@ const StyledContainer = styled.button<StyledProps>`
     margin: 5px;
     width: 80px;
     height: 80px;
+    border-color: #000;
     border-radius: 50px;
-    background-color: #fff;
+    background-color: #000;
     color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: solid 2px #fff; */
     transform: ${(props) =>
-        `rotate(${props.dotAngle}deg) translate(${props.dotTranslateX}px, ${props.dotTranslateY}px) rotate(-${props.dotAngle}deg)`};
+        `rotate(-${props.dotAngle}deg) translate(${props.dotTranslateX}px, ${props.dotTranslateY}px) rotate(${props.dotAngle}deg)`};
+    &:active {
+        background-color: #000;
+        border: solid 2px #fff;
+    }
+    &:hover {
+        background-color: #000;
+        border: solid 2px #fff;
+    }
 `;
 
 export default ListDot;

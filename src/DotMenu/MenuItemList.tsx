@@ -1,8 +1,13 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import MenuDotItem from './MenuDotItem';
+import { DOT_DATA } from '../data/index';
 
-const MOCKARRAY = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
+// const DOT_DATA = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
 type Props = {
     title?: string;
@@ -23,12 +28,12 @@ const ListItemDots: FC<Props> = (props) => {
     const handleDotPress = () => {
         setDotActive(!dotActive);
     };
-    const [arrLength, setArrLength] = useState<number>(MOCKARRAY.length);
+    const [arrLength, setArrLength] = useState<number>(DOT_DATA.length);
     const [dotAngle, setDotAngle] = useState<number>(0);
 
     useEffect(() => {
         if (arrLength === undefined || arrLength <= 0) {
-            setArrLength(MOCKARRAY.length);
+            setArrLength(DOT_DATA.length);
         }
         calcAngleBwDots();
         console.log('DOT active in ListITems', dotActive);
@@ -46,10 +51,12 @@ const ListItemDots: FC<Props> = (props) => {
                 onClick={() => {
                     handleDotPress();
                 }}
-            ></StyledDot>
+            >
+                <FontAwesomeIcon icon={faBars} size="5x" style={{ color: '#FF99FE' }} />
+            </StyledDot>
             {dotActive && (
                 <StyledContainer>
-                    {MOCKARRAY.map((e, i) => {
+                    {DOT_DATA.map((e, i) => {
                         return (
                             <MenuDotItem
                                 dotContent={e}
@@ -73,22 +80,28 @@ const StyledContainer = styled.div<StyledProps>`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: #000;
 `;
 
 const StyledDot = styled.button<StyledProps>`
     outline: none;
     width: 120px;
     height: 120px;
-    background-color: #fff;
-    border: solid 0px #555;
+    /* background-color: #fff; */
+    border: solid 0px #fff;
     border-radius: 500px;
+    background-color: #000;
     &:active {
         width: 126px;
         height: 126px;
         background-color: #000;
         border: solid 2px #fff;
+        width: 124px;
+        height: 124px;
     }
     &:hover {
+        width: 124px;
+        height: 124px;
         background-color: #000;
         border: solid 2px #fff;
     }

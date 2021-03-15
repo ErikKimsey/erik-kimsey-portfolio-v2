@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
+import VerticalMenu from '../VerticalMenu/VerticalMenu';
 
 type Props = {
     data?: [];
@@ -14,12 +15,19 @@ const PortfolioPage: FC<Props> = (props) => {
 
     return (
         <StyledContainer>
+            <VerticalMenu />
             <div style={{ color: '#fff' }}></div>
         </StyledContainer>
     );
 };
 
 const StyledContainer = styled.div<StyledProps>`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     color: #fff;
 `;
 
