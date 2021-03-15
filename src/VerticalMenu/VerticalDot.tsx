@@ -20,7 +20,7 @@ type StyledProps = {
 };
 
 const VerticalDot: FC<Props> = (props) => {
-    const { dotContent, link } = props;
+    const { dotContent } = props;
     console.log(dotContent);
 
     return (
@@ -38,7 +38,7 @@ const VerticalDot: FC<Props> = (props) => {
 
 const StyledContainer = styled.button<StyledProps>`
     outline: none;
-    /* margin: 5px; */
+    margin: 3px;
     width: 80px;
     height: 80px;
     border-color: #000;
@@ -49,8 +49,6 @@ const StyledContainer = styled.button<StyledProps>`
     justify-content: center;
     align-items: center;
     &:hover {
-        /* width: 105px;
-        height: 105px; */
         align-items: flex-end;
     }
 `;
