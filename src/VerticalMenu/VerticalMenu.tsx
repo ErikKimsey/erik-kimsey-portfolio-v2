@@ -41,12 +41,11 @@ const VerticalMenu: FC<Props> = (props) => {
 const StyledContainer = styled.div<StyledProps>`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    justify-self: flex-start;
+    justify-content: space-between;
+    align-self: center;
     width: 400px;
-    height: 100px;
+    /* height: 100px; */
     padding: 10px;
-    border: solid 1px #fff;
 `;
 
 export default VerticalMenu;

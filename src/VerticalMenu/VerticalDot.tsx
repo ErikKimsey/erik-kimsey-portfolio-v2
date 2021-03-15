@@ -38,17 +38,21 @@ const VerticalDot: FC<Props> = (props) => {
 
 const StyledContainer = styled.button<StyledProps>`
     outline: none;
-
-    margin: 5px;
+    /* margin: 5px; */
     width: 80px;
     height: 80px;
     border-color: #000;
-    border-radius: 50px;
+    border-radius: 100px;
     background-color: #000;
     color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover {
+        /* width: 105px;
+        height: 105px; */
+        align-items: flex-end;
+    }
 `;
 
 export default VerticalDot;
