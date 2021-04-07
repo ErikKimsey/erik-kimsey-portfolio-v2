@@ -1,7 +1,7 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
 interface DotContent {
@@ -37,44 +37,57 @@ const HorizontalDot: FC<Props> = (props) => {
     return (
         <>
             <StyledContainer dotActive={isActive}>
-                <Link
+                <NavLink
                     to={`./${dotContent?.routeName}`}
+                    activeStyle={{
+                        padding: 10,
+                        border: 'solid 3px #333',
+                        borderRadius: 5,
+                        // boxShadow: '3px 3px #fff',
+                    }}
                     onClick={() => {
                         handleActiveMenu();
                     }}
                 >
                     {dotContent?.iconName && (
                         <FontAwesomeIcon icon={dotContent?.iconName} size="3x" className="fontIcon" />
-                        // <FontAwesomeIcon icon={dotContent?.iconName} size="3x" style={{ color: '#FF99FE' }} className='icon'/>
                     )}
-                </Link>
+                </NavLink>
             </StyledContainer>
         </>
     );
 };
 
-const ScaleIconOnLoad = keyframes`
-    0%: {transform:scale(1.0)}
-    50%: {transform:scale(1.4)}
-    100%: {transform:scale(1.0)}
-`;
-
 const StyledContainer = styled.button<StyledProps>`
     display: flex;
     outline: none;
-    margin: 3px;
-    width: 80px;
-    height: 80px;
+    margin: 0 15px;
+    width: 50px;
+    height: 50px;
     border-color: #000;
     border-radius: 100px;
     background-color: #000;
     color: #000;
     justify-content: center;
     align-items: center;
+    &:hover {
+        transform: scale(1.1);
+    }
     .fontIcon {
         color: #ffcdfe;
         &:active {
             color: #fff;
+        }
+    }
+    @media (max-width: 1020px) {
+        width: 40px;
+        height: 40px;
+        margin: 10px 10px;
+
+        &:active {
+            width: 130px;
+            height: 130px;
+            background-color: #000;
         }
     }
 `;

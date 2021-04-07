@@ -40,7 +40,7 @@ const HorizontalMenu: FC<Props> = (props) => {
     return (
         <>
             <StyledContainer>
-                <div style={{ margin: 20 }}>
+                <div className="burgerIconDiv" style={{ margin: 3 }}>
                     <Hamburger toggled={isOpen} toggle={() => handleActiveMenu()} size={50} color="#FF99FE" />
                 </div>
                 {isActive &&
@@ -59,6 +59,29 @@ const StyledContainer = styled.div<StyledProps>`
     align-self: center;
     width: 100%;
     padding: 0;
+    .burgerIconDiv {
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    @media (max-width: 1020px) {
+        /* width: 80vw; */
+        position: absolute;
+        left: 20px;
+        height: auto;
+        width: 60px;
+        display: flex;
+
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: space-between;
+        /* background-color: #f0f; */
+        /* &:active {
+            width: 130px;
+            height: 130px;
+            background-color: #000;
+        } */
+    }
 `;
 
 export default HorizontalMenu;
