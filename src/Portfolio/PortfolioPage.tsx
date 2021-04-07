@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import VerticalMenu from '../VerticalMenu/VerticalMenu';
+import ListItemDots from '../DotMenu/MenuItemList';
 import WorkItemList from './WorkItemList';
 import { WORK_HISTORY } from '../data/WorkHistory';
 import { WorkItemType } from './types';
@@ -25,7 +25,7 @@ const PortfolioPage: FC<Props> = (props) => {
 
     return (
         <StyledContainer>
-            <VerticalMenu />
+            <ListItemDots />
             {workHistory && <WorkItemList workItemData={workHistory} />}
         </StyledContainer>
     );

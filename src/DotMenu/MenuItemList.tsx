@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import MenuDotItem from './MenuDotItem';
 import { DOT_DATA } from '../data/index';
 
@@ -74,6 +74,16 @@ const ListItemDots: FC<Props> = (props) => {
     );
 };
 
+const scaleSmoothly = keyframes`
+  from {
+    transform: scale(1.0);
+  }
+
+  to {
+    transform: scale(1.2);
+  }
+`;
+
 const StyledContainer = styled.div<StyledProps>`
     position: absolute;
     display: flex;
@@ -87,7 +97,6 @@ const StyledDot = styled.button<StyledProps>`
     outline: none;
     width: 120px;
     height: 120px;
-    /* background-color: #fff; */
     border: solid 0px #fff;
     border-radius: 500px;
     background-color: #000;
@@ -95,15 +104,12 @@ const StyledDot = styled.button<StyledProps>`
         width: 130px;
         height: 130px;
         background-color: #000;
-        /* border: solid 2px #fff; */
-        /* width: 124px;
-        height: 124px; */
     }
     &:hover {
-        width: 124px;
-        height: 124px;
-        background-color: #000;
-        /* border: solid 2px #fff; */
+        transform: scale(1.2);
+        color: #fff;
+        animation: ${scaleSmoothly} 300ms ease-in-out;
+        border: solid 2px #aaa;
     }
     @media (min-width: 1020px) {
         &:hover {

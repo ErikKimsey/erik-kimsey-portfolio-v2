@@ -1,7 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import MenuItemList from '../DotMenu/MenuItemList';
-import VerticalMenu from '../VerticalMenu/VerticalMenu';
 
 type Props = {
     header?: string;

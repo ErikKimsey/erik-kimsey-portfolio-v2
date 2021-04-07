@@ -24,7 +24,7 @@ const HeaderComponent: FC<Props> = (props) => {
 };
 
 const StyledContainer = styled.div<StyledProps>`
-    padding: 10px;
+    padding: 10px 0 0 0;
     display: flex;
     flex-direction: row;
     font-family: 'Kiona';

@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { DOT_DATA } from '../data/index';
-import VerticalDot from './VerticalDot';
+import VerticalDot from './HorizontalDot';
 
 type Props = {
     name?: string;
@@ -44,7 +44,7 @@ const StyledContainer = styled.div<StyledProps>`
     justify-content: center;
     align-self: center;
     width: 100%;
-    padding: 5px 0;
+    padding: 0;
 `;
 
 export default VerticalMenu;
