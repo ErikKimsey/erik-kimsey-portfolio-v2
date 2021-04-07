@@ -2,7 +2,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 interface DotContent {
     iconName?: IconProp;
@@ -12,25 +12,37 @@ interface DotContent {
 type Props = {
     link?: string;
     dotContent?: DotContent;
+    dotActive?: boolean;
 };
 
 type StyledProps = {
     dotHeight?: number;
     dotWidth?: number;
+    dotActive?: boolean;
 };
 
-const VerticalDot: FC<Props> = (props) => {
-    const { dotContent } = props;
-    const [isHover, setIsHover] = useState<boolean>(false);
+const HorizontalDot: FC<Props> = (props) => {
+    const { dotContent, dotActive } = props;
 
-    const handleHover = (v: boolean) => {
-        setIsHover(v);
+    const [isActive, setIsActive] = useState<boolean>(true);
+
+    useEffect(() => {
+        // console.log(isActive);
+    }, [dotActive]);
+
+    const handleActiveMenu = () => {
+        setIsActive(!isActive);
     };
 
     return (
         <>
-            <StyledContainer>
-                <Link to={`./${dotContent?.routeName}`}>
+            <StyledContainer dotActive={isActive}>
+                <Link
+                    to={`./${dotContent?.routeName}`}
+                    onClick={() => {
+                        handleActiveMenu();
+                    }}
+                >
                     {dotContent?.iconName && (
                         <FontAwesomeIcon icon={dotContent?.iconName} size="3x" className="fontIcon" />
                         // <FontAwesomeIcon icon={dotContent?.iconName} size="3x" style={{ color: '#FF99FE' }} className='icon'/>
@@ -41,7 +53,14 @@ const VerticalDot: FC<Props> = (props) => {
     );
 };
 
+const ScaleIconOnLoad = keyframes`
+    0%: {transform:scale(1.0)}
+    50%: {transform:scale(1.4)}
+    100%: {transform:scale(1.0)}
+`;
+
 const StyledContainer = styled.button<StyledProps>`
+    display: flex;
     outline: none;
     margin: 3px;
     width: 80px;
@@ -50,18 +69,14 @@ const StyledContainer = styled.button<StyledProps>`
     border-radius: 100px;
     background-color: #000;
     color: #000;
-    display: flex;
     justify-content: center;
     align-items: center;
     .fontIcon {
-        color: #ff99fe;
+        color: #ffcdfe;
         &:active {
             color: #fff;
         }
     }
-    &:hover {
-        align-items: flex-end;
-    }
 `;
 
-export default VerticalDot;
+export default HorizontalDot;

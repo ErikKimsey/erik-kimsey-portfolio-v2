@@ -1,14 +1,15 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { DOT_DATA } from '../data/index';
-import VerticalDot from './HorizontalDot';
+import HorizontalDot from './HorizontalDot';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import Hamburger from 'hamburger-react';
 
 type Props = {
     name?: string;
-};
-
-type StyledDotProps = {
-    bkgrdColor?: string;
 };
 
 type StyledProps = {
@@ -22,17 +23,34 @@ type StyledProps = {
     isActive?: boolean;
 };
 
-const VerticalMenu: FC<Props> = (props) => {
+const HorizontalMenu: FC<Props> = (props) => {
     const {} = props;
+    const [isActive, setIsActive] = useState(false);
+    const [isOpen, setOpen] = useState(false);
 
-    console.log(DOT_DATA);
+    useEffect(() => {
+        //
+    }, [isActive]);
+
+    const handleActiveMenu = () => {
+        setOpen(!isOpen);
+        setIsActive(!isActive);
+    };
 
     return (
         <>
             <StyledContainer>
-                {DOT_DATA.map((e) => {
-                    return <VerticalDot dotContent={e} />;
-                })}
+                <Hamburger toggled={isOpen} toggle={() => handleActiveMenu()} size={50} color="#FF99FE" margin={20} />
+                {/* <FontAwesomeIcon
+                    icon={faBars}
+                    size="1x"
+                    style={{ color: '#FF99FE', width: '50px', height: '50px', margin: '20px' }}
+                    onClick={() => handleActiveMenu()}
+                /> */}
+                {isActive &&
+                    DOT_DATA.map((e) => {
+                        return <HorizontalDot dotContent={e} dotActive={isActive} />;
+                    })}
             </StyledContainer>
         </>
     );
@@ -47,4 +65,4 @@ const StyledContainer = styled.div<StyledProps>`
     padding: 0;
 `;
 
-export default VerticalMenu;
+export default HorizontalMenu;

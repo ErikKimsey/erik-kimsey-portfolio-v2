@@ -4,6 +4,7 @@ import ListItemDots from '../DotMenu/MenuItemList';
 import WorkItemList from './WorkItemList';
 import { WORK_HISTORY } from '../data/WorkHistory';
 import { WorkItemType } from './types';
+import HorizontalMenu from '../HorizontalMenu/HorizontalMenu';
 
 type Props = {
     data?: [];
@@ -25,14 +26,14 @@ const PortfolioPage: FC<Props> = (props) => {
 
     return (
         <StyledContainer>
-            <ListItemDots />
+            <HorizontalMenu />
             {workHistory && <WorkItemList workItemData={workHistory} />}
         </StyledContainer>
     );
 };
 
 const StyledContainer = styled.div<StyledProps>`
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
     display: flex;
     flex-direction: column;
