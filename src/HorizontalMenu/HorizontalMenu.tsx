@@ -40,13 +40,9 @@ const HorizontalMenu: FC<Props> = (props) => {
     return (
         <>
             <StyledContainer>
-                <Hamburger toggled={isOpen} toggle={() => handleActiveMenu()} size={50} color="#FF99FE" margin={20} />
-                {/* <FontAwesomeIcon
-                    icon={faBars}
-                    size="1x"
-                    style={{ color: '#FF99FE', width: '50px', height: '50px', margin: '20px' }}
-                    onClick={() => handleActiveMenu()}
-                /> */}
+                <div style={{ margin: 20 }}>
+                    <Hamburger toggled={isOpen} toggle={() => handleActiveMenu()} size={50} color="#FF99FE" />
+                </div>
                 {isActive &&
                     DOT_DATA.map((e) => {
                         return <HorizontalDot dotContent={e} dotActive={isActive} />;
