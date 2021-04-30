@@ -1,0 +1,233 @@
+@import '../__styles/responsive.scss';
+@import '../__styles/globals.scss';
+
+/*
+Animating the menu with Sass
+(https://glennmccomb.com/articles/creating-smooth-sequential-animations-with-sass/)
+
+.tile:nth-child(1) {
+  animation-delay: .1s;
+}
+
+@animation
+
+@keyframes drop {
+  0% {
+    background: $tile-bg;
+    transform: scale(1);
+  }
+  
+  25% {
+    background: darken($tile-bg, 10%);
+    transform: scale(1.015);
+  }
+  
+  50% {
+    background: $tile-bg;
+    transform: scale(1);
+  }
+*/
+
+.lil-nav-container {
+  position: fixed;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  right: 3.28% * 3;
+  top: 16.14%;
+  width: 31.4%;
+  flex-flow: column;
+  align-items: flex-end;
+  z-index: 10;
+  
+  .lil-nav-btn {
+    cursor: pointer;
+    align-self: flex-end;
+    width: 33px;
+    height: 33px;
+    padding: 4px;
+    img {
+      opacity: 0.6;
+      height:83px;
+      transition: 0.4s;
+      &:hover {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+      &:active {
+        transform: rotate(22deg);
+      }
+    }
+  }
+  
+  .nav-list {
+    display: none;
+    box-sizing: border-box;
+    width: 1%;
+    .list-item {
+      box-sizing: border-box;
+      width:100%;
+      font-weight: 900;
+      transform: skew(33deg);
+      color:#fff;
+      text-decoration: none;
+      align-self: center;
+      padding: 7px;
+      margin: 7px;
+      border-right: 2px solid $lighterpink;
+      background-color: rgba(0,0,0,0.9);
+      transition: 0.4s;
+      animation: itemout 0.3s ease-in-out 1;
+      &:hover {
+        color:$lighterpink;
+        border-bottom: 1px solid $yellow;
+        border-right: 4px solid $yellow;
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
+  
+  
+  .no-show {
+    transform: skew(-33deg);
+    display: flex;
+    flex-flow: column;
+    padding: 14px;
+    height:100%;
+    width: 314px;
+    // animation: itemin 0.2s ease-in-out 1;
+  }
+
+  .item-animation-out {
+    display: block;
+    animation: itemout 0.2s ease-in-out 1;
+    width: 100%;
+  }
+  .item-animation-in {
+    display: none;
+    animation: itemin 0.2s ease-in-out 1;
+    width: 0%;
+  }
+
+  @keyframes itemout {
+    0% {
+      width:0%;
+    }
+    50% {
+      width:20%;
+    }
+    100% {
+      width: 100%;
+    }
+  } 
+
+  @keyframes itemin {
+    0% {
+      width:100%;
+    }
+    50% {
+      width:80%;
+    }
+    100% {
+      width: 0%;
+    }
+  } 
+  
+  @media only screen and (max-width: $lgDevice) {}
+  @media only screen and (max-width: $mdDevice) {
+      
+    .no-show {
+      transform: skew(-23deg);
+      display: flex;
+      flex-flow: column;
+      padding: 14px;
+    }
+
+    .nav-list {
+      .list-item {
+        transform: skew(23deg);
+        background-color: #000000;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $smDevice) {
+
+    position: fixed;
+    width: 80%;
+    color: #fff;
+    display: flex;
+    right: 6.28% * 2;
+    top: 16.14%;
+    width: 31.4%;
+    flex-flow: column;
+    align-items: flex-end;
+      
+  .lil-nav-btn {
+    cursor: pointer;
+    align-self: flex-end;
+    width: 33px;
+    height: 33px;
+    padding: 4px;
+    transform: scaleX(-1);
+    img {
+      height:43px;
+      transition: 0.1s;
+      &:hover {
+        transform: scale(1.2);
+      }
+      &:active {
+        transform: rotate(22deg);
+      }
+    }
+  }
+
+    .nav-list {
+      display: none;
+  
+      .list-item {
+        width: 100%;
+        font-weight: 900;
+        transform: skew(23deg);
+        color:#fff;
+        text-decoration: none;
+        align-self: center;
+        padding: 7px;
+        margin: 7px;
+        border-right: 2px solid $lighterpink;
+        background-color: rgba(0,0,0,0.9);
+        &:hover {
+          color:$lighterpink;
+          border-bottom: 1px solid $yellow;
+          border-right: 4px solid $yellow;
+          border-bottom-right-radius: 5px;
+        }
+        a {}
+      }
+    }
+    
+    .no-show {
+      transform: skew(-23deg);
+      display: flex;
+      flex-flow: column;
+      padding: 14px;
+      width: 222px;
+    }
+  }
+  @media only screen and (max-width: $xsDevice) {
+    position: fixed;
+    width: 80%;
+    color: #fff;
+    display: -webkit-flex;
+    display: flex;
+    right: 12.56%;
+    top: 16.14%;
+    .no-show {
+      transform: skew(-23deg);
+      display: flex;
+      flex-flow: column;
+      padding: 14px;
+      width: 222px;
+    }
+  }
+}

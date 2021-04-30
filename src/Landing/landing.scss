@@ -1,0 +1,175 @@
+@import '../__styles/globals.scss';
+@import '../__styles/responsive.scss';
+@import '../__styles/mixins.scss';
+
+$num-of-blurbs: 4;
+
+.landing-container {
+  height: calc(100vh - 320px);
+  width: 100%;
+  margin: 0 auto;
+  color: #fff;
+  overflow: hidden;
+  padding: 100px;
+  padding-top: 30px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto auto;
+  @include fade-load-mixin;
+
+  .skill-list-container {
+    margin:5px;
+    padding:5px;
+    width: 200px;
+    
+    h2 {
+        font-weight: 900;
+      }
+    list-style: none;
+    li {
+        padding-left: 10px;
+    }
+  }
+  
+  .self-blurb-container {
+    margin: 0;
+    font-size: 1.4em;
+    opacity: 1;
+    transition: 600ms;
+    color: #000000;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    @include landing-bubble-desktop($num-of-blurbs);
+    &.blurb-3 {
+      padding-bottom: 20px;
+    }
+  }
+
+  .blurb-1 {
+    grid-area: 1 / 2 / 3 /4;
+    font-size: calc(300%);
+    background-color: $pink;
+    background-repeat: space;
+    background-image: url('../assets/bige_color_v2.png');
+    background-position: center;
+    color:#fff;
+    font-weight: 900;
+    @include bubble-1-desktop;
+  }
+  
+  @for $i from 1 through $num-of-blurbs {
+    .self-blurb-container {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * (20s / 50);
+      }
+    }
+  }
+  
+  .active-grid {
+    font-size: calc(200%);
+    background-color: $pink;
+    color:#fff;
+  }
+  
+  .inactive-blurb {
+    font-size: calc(100%);
+    background-image: none;
+    background-color: #000;
+    color:#fff;
+  }
+  
+  .fade-text {
+    opacity: 0;
+  }
+  
+  @media only screen and (max-width: $lgDevice) {
+    margin: 50px 0;
+    padding: 0 16px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    overflow-y: visible;
+    
+    .blurb-1 {
+      grid-area: 1 / 1 / 4 / 2;
+      font-size: calc(200%);
+      background-color: $pink;
+      color:#fff;
+    }
+
+    .inactive-blurb {
+      font-size: calc(100%);
+      background-color: #000;
+      color:#fff;
+    }
+  }
+
+  @media only screen and (max-width: $mdDevice) {
+    margin: 50px 0;
+    padding: 0 16px;
+    margin-top: 88px;
+    height: calc(100vh - 220px);
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4 1fr);
+    overflow-y: visible;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+
+    .self-blurb-container {
+      background-color: #fff;
+      color:$pink;
+      @include landing-bubble($num-of-blurbs);
+    }
+    .blurb-1 {
+      background-color: $pink;
+      color:#fff;
+    }
+
+    .active-grid {
+      font-size: calc(200%);
+      background-color: $pink;
+      color:#fff;
+    }
+
+    .inactive-blurb {
+      font-size: calc(100%);
+      background-color: #000;
+      color:#fff;
+      background-image: none;
+    }
+    
+    @for $i from 1 through $num-of-blurbs {
+      .self-blurb-container {
+        &:nth-child(#{$i}) {
+          animation-delay: $i * (20s / 40);
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: $smDevice) {
+    margin-left:0px;
+    padding: 0 16px;
+    
+    .spin {
+      padding: 3px !important;
+      font-size: 1em;
+    }
+    
+    .self-blurb-container {
+      @include landing-bubble($num-of-blurbs);
+    }
+  }
+  
+  @media only screen and (max-width: $xsDevice) {
+    margin-left:0px;
+    padding: 10px;
+    .spin {
+      padding: 3px !important;
+      font-size: 1em;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@import './__styles/responsive.scss';
+@import './__styles/globals.scss';
+@import './__styles//mixins.scss';
+
+.App {
+  margin: 0 auto;
+  height: 100vh;
+  max-width: 1600px;
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: flex-start;
+  background-image: url('./assets/plant.png');
+  background-repeat: no-repeat;
+  background-position-x: center;
+
+  .routes-container{
+    position: relative;
+    width: 90%;
+    height: calc(100vh - 220px);
+    margin: 50px auto;
+    top: 13px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+  }
+
+  .lil-extra {
+    display: none;
+    position: absolute;
+    width: 100px;
+    right: calc(0px);
+    height: calc(100vh - 160px);
+    margin-top: 60px;
+    background-color: black;
+  }
+
+  @media only screen and (max-width: $lgDevice) {
+    display: flex;
+    flex-flow: column;
+    max-width: 1000px;
+    width: 100%;
+    .routes-container {
+      max-width: 1000px;
+      width: 98%;
+
+      margin-left: 5px;
+      margin-right: 5px;
+      top: 77px;
+    }
+    .lil-extra{
+      width: 99%;
+      height: 100px;
+      top: 100px;
+      margin: 0 5px;
+      left: 0px;
+    }
+  }
+
+  @media only screen and (max-width: $mdDevice) {
+    display: flex;
+    flex-flow: column;
+    .routes-container {
+      width: 97%;
+    margin-left: 5px;
+      margin-right: 5px;
+      top: 0px;
+      margin-top: 70px;
+    }
+    .lil-extra{
+      width: 97%;
+      height: 70px;
+      top: 130px;
+      margin: 0 5px;
+      left: 0px;
+    }
+    
+  }
+  @media only screen and (max-width: $smDevice) {
+    display: flex;
+    flex-flow: column;
+    
+    .routes-container {
+      width: 97%;
+      margin-left: 5px;
+      margin-right: 5px;
+      top: 0px;
+      margin-top: 0;
+    }
+    
+    .lil-extra{
+      width: 97%;
+      height: 70px;
+      top: 88px;
+      margin: 0 5px;
+      left: 0px;
+    }
+
+  }
+  @media only screen and (max-width: $xsDevice) {
+    .routes-container {
+      top: 0px;
+      margin-top: 0;
+    }
+  }
+}
+

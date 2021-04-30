@@ -1,0 +1,30 @@
+@import '../__styles/responsive.scss';
+
+.icon-links-container {
+  position: relative;
+  
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  .fab {
+    margin: 20px;
+    transition: all 300ms;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+  @media only screen and (max-width: $lgDevice){
+    flex-flow: row;
+    justify-content: flex-end;
+  }
+  @media only screen and (max-width: $mdDevice){
+    position: static;
+    justify-content: flex-end;
+    bottom: 0px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+
+My adventure from artist to wanna-be academic to post-bacc pre-med to software engineer has been a long ride.  
+//
+So, now, I enjoy working creatively with technology.
+//
+I focus on web-based and mobile-web technology, design, and content.
+//
+I enjoy learning new languages and technology.  Especially, in order to put them to use in novel ways.
+//
+I want to be at the cross-section of interactivity, aesthetic-appeal, innovation, and good purpose.
+//
+I want to be at the cross-section of interactivity, aesthetic-appeal, innovation, and good purpose.
+
+//
+//
+//
+
+::: My Skillset :::
+WebStack:
+ES6/7,
+React/Redux/NextJS,
+P5JS,
+CSS3, LESS, SASS, Styled-Components,
+HTML5 / Canvas API,
+Apollo-Client,
+NodeJS / Express / SocketIO, 
+Django,
+SQL, SQLite,
+GraphQL / Apollo-Server.
+
+General Purpose:
+Python,
+C,
+Processing,
+Java (Android).
+

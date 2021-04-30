@@ -1,0 +1,19 @@
+@import '../__styles/responsive.scss';
+@import '../__styles/globals.scss';
+@import '../__styles/mixins.scss';
+
+.oddtreatment-container {
+  // display: flex;
+  // flex-flow: column;
+  overflow-y: scroll;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fill, minmax(233px, 1fr));
+  color:#fff;
+  width: 100%;
+  margin-left: 140px;
+  // padding: 15px;
+  // background-color: rgba(255,255,255,0.8);
+  background-color: rgba(111,11,255,0.8);
+  @include fade-load-mixin;
+}

@@ -1,0 +1,67 @@
+@import './globals.scss';
+@import './animations.scss';
+
+
+.scroll-arrow-container {
+  position: fixed;
+  width: 87px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  left: calc(50% - 43px);
+  bottom: calc(33vh);
+  opacity: 1;
+  i {
+    width: 4px;
+    border: solid $pink;
+    border-width: 0 25px 25px 0;
+    padding: 24px;
+    opacity: 0;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+}
+
+.animate-bounce {
+  opacity: 1;
+  animation: bounce 750ms 1500ms 3 ease-in-out;
+}
+
+.animate-opacity {
+  animation: opacityBump 800ms 2800ms 4 ease-in-out;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes bounce {
+  0% {
+    bottom: calc(10vh);
+    opacity: 1;
+    transform: scale(0.5) rotate(45deg);
+  }
+  50% {
+    bottom: calc(5vh);
+    opacity: 1;
+    transform: scale(1.1) rotate(45deg);
+  }
+  100% {
+    bottom: calc(10vh);
+    transform: scale(0.8) rotate(45deg);
+  }
+}
+
+@keyframes opacityBump {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    bottom: calc(5vh);
+  }
+  100% {
+    opacity: 0;
+  }
+}
